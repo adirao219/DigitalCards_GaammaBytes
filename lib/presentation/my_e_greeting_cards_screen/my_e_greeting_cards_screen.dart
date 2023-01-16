@@ -62,6 +62,7 @@ class _MyEGreetingCardsScreen extends State<MyEGreetingCardsScreen> {
                               separatorBuilder: (context, index) {
                                 return SizedBox(height: getVerticalSize(56.00));
                               },
+                              
                               itemCount: myEGreetingCardsModelObj
                                   .value.listchristmasthumbnailItemList.length,
                               itemBuilder: (context, index) {

@@ -11,7 +11,13 @@ class ListchristmasthumbnailItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return 
+    InkWell(
+      onTap: () {
+         Get.toNamed(AppRoutes.eGreetingCardOptionsScreen);
+      },
+      child:
+    Container(
       decoration: AppDecoration.outlineBlack900,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -112,6 +118,6 @@ class ListchristmasthumbnailItemWidget extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

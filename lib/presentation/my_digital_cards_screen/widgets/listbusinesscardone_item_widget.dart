@@ -11,7 +11,11 @@ class ListbusinesscardoneItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: () {
+         Get.toNamed(AppRoutes.digitalCardOptionsScreen);
+      },
+      child:Container(
       decoration: AppDecoration.outlineBlack900,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -112,6 +116,6 @@ class ListbusinesscardoneItemWidget extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }
