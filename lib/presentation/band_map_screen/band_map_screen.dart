@@ -1,4 +1,3 @@
-import 'controller/band_map_controller.dart';
 import 'package:digitalcards/core/app_export.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_iconbutton.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
@@ -8,7 +7,19 @@ import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:digitalcards/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class BandMapScreen extends GetWidget<BandMapController> {
+class BandMapScreen extends StatefulWidget {
+  const BandMapScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _BandMapScreen createState() => _BandMapScreen();
+}
+
+class _BandMapScreen extends State<BandMapScreen> {
+  final TextEditingController _location_controller = TextEditingController();
+  final TextEditingController _heading_controller = TextEditingController();
+  final TextEditingController _lat_controller = TextEditingController();
+  final TextEditingController _long_controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -71,13 +82,13 @@ class BandMapScreen extends GetWidget<BandMapController> {
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33633Controller,
+                          controller: _heading_controller,
                           hintText: "lbl_heading".tr,
                           margin: getMargin(top: 35)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33636Controller,
+                          controller: _location_controller,
                           hintText: "lbl_location".tr,
                           margin: getMargin(top: 22)),
                       CustomImageView(
@@ -88,13 +99,13 @@ class BandMapScreen extends GetWidget<BandMapController> {
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33633OneController,
+                          controller: _lat_controller,
                           hintText: "lbl_latitude".tr,
                           margin: getMargin(top: 23)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33635Controller,
+                          controller: _long_controller,
                           hintText: "lbl_longitude".tr,
                           margin: getMargin(top: 24, bottom: 5),
                           textInputAction: TextInputAction.done)
