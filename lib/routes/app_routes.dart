@@ -134,7 +134,6 @@ class AppRoutes {
     GetPage(
       name: welcomeScreen,
       page: () => const WelcomeScreen(),
-      
     ),
     GetPage(
       name: signupScreen,
@@ -166,7 +165,7 @@ class AppRoutes {
     ),
     GetPage(
       name: locationEntryScreen,
-      page: () =>const  LocationEntryScreen(),
+      page: () => const LocationEntryScreen(),
     ),
     GetPage(
       name: pictureLogoColorOneScreen,
@@ -202,7 +201,7 @@ class AppRoutes {
     ),
     GetPage(
       name: myDigitalCardsScreen,
-      page: () =>const MyDigitalCardsScreen(),
+      page: () => const MyDigitalCardsScreen(),
     ),
     GetPage(
       name: myEGreetingCardsScreen,
@@ -214,11 +213,11 @@ class AppRoutes {
     ),
     GetPage(
       name: changePasswordScreen,
-      page: () =>const  ChangePasswordScreen(),
+      page: () => const ChangePasswordScreen(),
     ),
     GetPage(
       name: imageModifyScreen,
-      page: () =>const  ImageModifyScreen(),
+      page: () => const ImageModifyScreen(),
     ),
     GetPage(
       name: footerScreen,
@@ -234,15 +233,15 @@ class AppRoutes {
     ),
     GetPage(
       name: linkScreen,
-      page: () =>const  LinkScreen(),
+      page: () => const LinkScreen(),
     ),
     GetPage(
       name: shareScreen,
-      page: () =>  const ShareScreen(),
+      page: () => const ShareScreen(),
     ),
     GetPage(
       name: advancedScreen,
-      page: () =>  AdvancedScreen(),
+      page: () => AdvancedScreen(),
     ),
     GetPage(
       name: bandLinkScreen,
@@ -260,10 +259,10 @@ class AppRoutes {
       name: bandVideoScreen,
       page: () => BandVideoScreen(),
     ),
-    GetPage(
-      name: bandPictureScreen,
-      page: () => BandPictureScreen(),
-    ),
+    // GetPage(
+    //   name: bandPictureScreen,
+    //   page: () => BandPictureScreen(),
+    // ),
     GetPage(
       name: bandContactbandScreen,
       page: () => BandContactbandScreen(),
@@ -276,10 +275,10 @@ class AppRoutes {
       name: bandBankaCdetailsScreen,
       page: () => BandBankaCdetailsScreen(),
     ),
-    GetPage(
-      name: bandUpicardScreen,
-      page: () => BandUpicardScreen(),
-    ),
+    // GetPage(
+    //   name: bandUpicardScreen,
+    //   page: () => BandUpicardScreen(),
+    // ),
     GetPage(
       name: appNavigationScreen,
       page: () => AppNavigationScreen(),
