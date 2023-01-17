@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'core/app_export.dart';
+import 'core/environment/env_config.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,6 +11,8 @@ void main() {
     DeviceOrientation.portraitUp,
   ]).then((value) {
     Logger.init(kReleaseMode ? LogMode.live : LogMode.debug);
+     
+    EnvConfig.initConfig(environment:  (kReleaseMode ? Environment.prod : Environment.dev));
     runApp(MyApp());
   });
 }
