@@ -1,4 +1,3 @@
-import 'controller/band_video_controller.dart';
 import 'package:digitalcards/core/app_export.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_iconbutton.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
@@ -8,7 +7,17 @@ import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:digitalcards/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class BandVideoScreen extends GetWidget<BandVideoController> {
+class BandVideoScreen extends StatefulWidget {
+  const BandVideoScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _BandVideoScreen createState() => _BandVideoScreen();
+}
+
+class _BandVideoScreen extends State<BandVideoScreen> {
+  final TextEditingController _heading_controller = TextEditingController();
+  final TextEditingController _url_controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -70,13 +79,13 @@ class BandVideoScreen extends GetWidget<BandVideoController> {
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33633Controller,
+                          controller: _heading_controller,
                           hintText: "lbl_heading".tr,
                           margin: getMargin(left: 1, top: 35)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33635Controller,
+                          controller: _url_controller,
                           hintText: "lbl_url".tr,
                           margin: getMargin(left: 1, top: 23, bottom: 5),
                           textInputAction: TextInputAction.done)

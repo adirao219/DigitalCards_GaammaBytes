@@ -5,6 +5,7 @@ import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:digitalcards/domain/googleauth/google_auth_helper.dart';
+
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -13,7 +14,7 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreen createState() => _WelcomeScreen();
 }
 
-class _WelcomeScreen extends  State<WelcomeScreen>{
+class _WelcomeScreen extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -167,58 +168,47 @@ class _WelcomeScreen extends  State<WelcomeScreen>{
                                   ]))),
                       CustomButton(
                           height: 62,
-                          onTap: () {
-                             Get.toNamed(AppRoutes
-                                                        .homeScreen);
-                          },
+                          onTap: gotoHomeScreen,
                           width: 295,
                           text: "lbl_log_in".tr,
                           margin: getMargin(top: 28),
                           fontStyle: ButtonFontStyle.InterSemiBold20),
                       Padding(
                           padding: getPadding(top: 54),
-                          child:
-                          
-                          InkWell(
-                            onTap: () {
-                              
-                                 Get.toNamed(AppRoutes
-                                                        .forgotPasswordoneScreen);
-                            },
-                            child: 
-                           RichText(
-                              text: TextSpan(children: [
-                                TextSpan(
-                                    text: "msg_forgot_password2".tr,
-                                    style: TextStyle(
-                                        color: ColorConstant.gray90002,
-                                        fontSize: getFontSize(15),
-                                        fontFamily: 'Nunito Sans',
-                                        fontWeight: FontWeight.w400,
-                                        height: getVerticalSize(1.22))),
-                                TextSpan(
-                                    text: "  ".tr,
-                                    style: TextStyle(
-                                        color: ColorConstant.gray90002,
-                                        fontSize: getFontSize(15),
-                                        fontFamily: 'Nunito Sans',
-                                        fontWeight: FontWeight.w600,
-                                        height: getVerticalSize(1.22))),
-                                TextSpan(
-                                    text: "lbl_click_here".tr,
-                                    style: TextStyle(
-                                        color: ColorConstant.deepOrangeA100,
-                                        fontSize: getFontSize(15),
-                                        fontFamily: 'Nunito Sans',
-                                        fontWeight: FontWeight.w600,
-                                        height: getVerticalSize(1.22)))
-                              ]),
-                              textAlign: TextAlign.left))),
+                          child: InkWell(
+                              onTap: gotoForgotPasswordSccreen,
+                              child: RichText(
+                                  text: TextSpan(children: [
+                                    TextSpan(
+                                        text: "msg_forgot_password2".tr,
+                                        style: TextStyle(
+                                            color: ColorConstant.gray90002,
+                                            fontSize: getFontSize(15),
+                                            fontFamily: 'Nunito Sans',
+                                            fontWeight: FontWeight.w400,
+                                            height: getVerticalSize(1.22))),
+                                    TextSpan(
+                                        text: "  ".tr,
+                                        style: TextStyle(
+                                            color: ColorConstant.gray90002,
+                                            fontSize: getFontSize(15),
+                                            fontFamily: 'Nunito Sans',
+                                            fontWeight: FontWeight.w600,
+                                            height: getVerticalSize(1.22))),
+                                    TextSpan(
+                                        text: "lbl_click_here".tr,
+                                        style: TextStyle(
+                                            color: ColorConstant.deepOrangeA100,
+                                            fontSize: getFontSize(15),
+                                            fontFamily: 'Nunito Sans',
+                                            fontWeight: FontWeight.w600,
+                                            height: getVerticalSize(1.22)))
+                                  ]),
+                                  textAlign: TextAlign.left))),
                       CustomButton(
-                        onTap: () {
-                           Get.toNamed(AppRoutes
-                                                        .signupScreen);
-                        },
+                          onTap: () {
+                            Get.toNamed(AppRoutes.signupScreen);
+                          },
                           height: 62,
                           width: 326,
                           text: "lbl_sign_up".tr,
@@ -286,5 +276,13 @@ class _WelcomeScreen extends  State<WelcomeScreen>{
 
   onTapArrowleft() {
     Get.back();
+  }
+
+  gotoHomeScreen() {
+    Get.toNamed(AppRoutes.homeScreen);
+  }
+
+  gotoForgotPasswordSccreen() {
+    Get.toNamed(AppRoutes.forgotPasswordoneScreen);
   }
 }

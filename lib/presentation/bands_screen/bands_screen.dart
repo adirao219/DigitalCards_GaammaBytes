@@ -1,4 +1,3 @@
-import 'controller/bands_controller.dart';
 import 'package:digitalcards/core/app_export.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_iconbutton.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
@@ -8,7 +7,26 @@ import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:digitalcards/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class BandsScreen extends GetWidget<BandsController> {
+class BandsScreen extends StatefulWidget {
+  const BandsScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _BandsScreen createState() => _BandsScreen();
+}
+
+class _BandsScreen extends State<BandsScreen> {
+  final TextEditingController _link_controller = TextEditingController();
+  final TextEditingController _note_controller = TextEditingController();
+  final TextEditingController _map_controller = TextEditingController();
+  final TextEditingController _video_controller = TextEditingController();
+  final TextEditingController _picture_controller = TextEditingController();
+  final TextEditingController _contact_band_controller =
+      TextEditingController();
+  final TextEditingController _icon_group_controller = TextEditingController();
+  final TextEditingController _bank_details_controller =
+      TextEditingController();
+  final TextEditingController _upi_card_controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -52,55 +70,55 @@ class BandsScreen extends GetWidget<BandsController> {
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33636Controller,
+                          controller: _link_controller,
                           hintText: "lbl_link".tr,
                           margin: getMargin(left: 1, top: 21)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33633Controller,
+                          controller: _note_controller,
                           hintText: "lbl_note".tr,
                           margin: getMargin(left: 1, top: 23)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33635Controller,
+                          controller: _map_controller,
                           hintText: "lbl_map".tr,
                           margin: getMargin(left: 1, top: 24)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33637Controller,
+                          controller: _video_controller,
                           hintText: "lbl_video".tr,
                           margin: getMargin(left: 1, top: 23)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33639Controller,
+                          controller: _picture_controller,
                           hintText: "lbl_picture".tr,
                           margin: getMargin(left: 1, top: 23)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33640Controller,
+                          controller: _contact_band_controller,
                           hintText: "lbl_contact_band".tr,
                           margin: getMargin(left: 1, top: 23)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33641Controller,
+                          controller: _icon_group_controller,
                           hintText: "lbl_icon_group".tr,
                           margin: getMargin(left: 1, top: 24)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33642Controller,
+                          controller: _bank_details_controller,
                           hintText: "lbl_bank_details".tr,
                           margin: getMargin(left: 1, top: 23)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller: controller.group33634Controller,
+                          controller: _upi_card_controller,
                           hintText: "lbl_upi_card".tr,
                           margin: getMargin(left: 1, top: 23, bottom: 5),
                           textInputAction: TextInputAction.done)
