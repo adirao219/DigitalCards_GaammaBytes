@@ -14,6 +14,7 @@ class CardEntryOneScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _CardEntryOneScreen createState() => _CardEntryOneScreen();
 }
+
 // ignore_for_file: must_be_immutable
 class _CardEntryOneScreen extends State<CardEntryOneScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -127,17 +128,25 @@ class _CardEntryOneScreen extends State<CardEntryOneScreen> {
                                 return null;
                               }),
                           Spacer(),
-                          CustomButton(
-                              height: 62,
-                              width: 295,
-                              text: "lbl_next".tr,
-                              margin: getMargin(bottom: 69),
-                              fontStyle: ButtonFontStyle.InterBlack16,
-                              alignment: Alignment.center)
+                          GestureDetector(
+                              onTap: () {
+                                onTapBussiness2Next();
+                              },
+                              child: CustomButton(
+                                  height: 62,
+                                  width: 295,
+                                  text: "lbl_next".tr,
+                                  margin: getMargin(bottom: 69),
+                                  fontStyle: ButtonFontStyle.InterBlack16,
+                                  alignment: Alignment.center))
                         ])))));
   }
 
   onTapArrowleft6() {
     Get.back();
+  }
+
+  onTapBussiness2Next() {
+    Get.toNamed(AppRoutes.pictureLogoColorOneScreen);
   }
 }

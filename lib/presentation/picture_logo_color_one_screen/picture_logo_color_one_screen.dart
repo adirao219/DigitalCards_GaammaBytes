@@ -13,10 +13,9 @@ class PictureLogoColorOneScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _PictureLogoColorOneScreen createState() => _PictureLogoColorOneScreen();
 }
-class _PictureLogoColorOneScreen
-    extends State<PictureLogoColorOneScreen> {
-      
- TextEditingController _image_controller = new TextEditingController();
+
+class _PictureLogoColorOneScreen extends State<PictureLogoColorOneScreen> {
+  TextEditingController _image_controller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -133,27 +132,33 @@ class _PictureLogoColorOneScreen
                                               width: getHorizontalSize(326.00),
                                               margin: getMargin(top: 33))
                                         ]))),
-                            CustomTextFormField(
-                                width: 155,
-                                focusNode: FocusNode(),
-                                controller:
-                                    _image_controller,
-                                hintText: "lbl_select_image".tr,
-                                variant: TextFormFieldVariant.OutlineBlack9003f,
-                                padding: TextFormFieldPadding.PaddingT12,
-                                fontStyle: TextFormFieldFontStyle.InterBlack12,
-                                textInputAction: TextInputAction.done,
-                                alignment: Alignment.topCenter,
-                                prefix: Container(
-                                    margin: getMargin(
-                                        left: 14,
-                                        top: 12,
-                                        right: 11,
-                                        bottom: 11),
-                                    child: CustomImageView(
-                                        svgPath: ImageConstant.imgMap)),
-                                prefixConstraints: BoxConstraints(
-                                    maxHeight: getVerticalSize(42.00))),
+                            GestureDetector(
+                              onTap: () {
+                                onTapSelectPicture1();
+                              },
+                              child: CustomTextFormField(
+                                  width: 155,
+                                  focusNode: FocusNode(),
+                                  controller: _image_controller,
+                                  hintText: "lbl_select_image".tr,
+                                  variant:
+                                      TextFormFieldVariant.OutlineBlack9003f,
+                                  padding: TextFormFieldPadding.PaddingT12,
+                                  fontStyle:
+                                      TextFormFieldFontStyle.InterBlack12,
+                                  textInputAction: TextInputAction.done,
+                                  alignment: Alignment.topCenter,
+                                  prefix: Container(
+                                      margin: getMargin(
+                                          left: 14,
+                                          top: 12,
+                                          right: 11,
+                                          bottom: 11),
+                                      child: CustomImageView(
+                                          svgPath: ImageConstant.imgMap)),
+                                  prefixConstraints: BoxConstraints(
+                                      maxHeight: getVerticalSize(42.00))),
+                            ),
                             CustomButton(
                                 height: 34,
                                 width: 92,
@@ -176,17 +181,29 @@ class _PictureLogoColorOneScreen
                           width: getHorizontalSize(133.00),
                           radius:
                               BorderRadius.circular(getHorizontalSize(5.00))),
-                      CustomButton(
-                          height: 62,
-                          width: 295,
-                          text: "lbl_next".tr,
-                          margin: getMargin(top: 83, bottom: 5),
-                          fontStyle: ButtonFontStyle.InterBlack16,
-                          alignment: Alignment.center)
+                      GestureDetector(
+                          onTap: () {
+                            onTapBussiness3Next();
+                          },
+                          child: CustomButton(
+                              height: 62,
+                              width: 295,
+                              text: "lbl_next".tr,
+                              margin: getMargin(top: 83, bottom: 5),
+                              fontStyle: ButtonFontStyle.InterBlack16,
+                              alignment: Alignment.center))
                     ]))));
   }
 
   onTapArrowleft8() {
     Get.back();
+  }
+
+  onTapBussiness3Next() {
+    Get.toNamed(AppRoutes.customizationOneScreen);
+  }
+
+  onTapSelectPicture1() {
+    Get.toNamed(AppRoutes.imageModifyScreen);
   }
 }

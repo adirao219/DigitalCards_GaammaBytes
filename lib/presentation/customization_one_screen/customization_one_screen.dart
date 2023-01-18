@@ -12,7 +12,6 @@ class CustomizationOneScreen extends StatefulWidget {
   _CustomizationOneScreen createState() => _CustomizationOneScreen();
 }
 
-
 class _CustomizationOneScreen extends State<CustomizationOneScreen> {
   @override
   Widget build(BuildContext context) {
@@ -107,165 +106,245 @@ class _CustomizationOneScreen extends State<CustomizationOneScreen> {
                                         ])))
                           ])),
                       Container(
-                          margin: getMargin(left: 31, top: 45, right: 19),
-                          padding: getPadding(
-                              left: 54, top: 8, right: 54, bottom: 8),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(children: [
-                            CustomImageView(
-                                svgPath: ImageConstant.imgVideocamera,
-                                height: getSize(21.00),
-                                width: getSize(21.00),
-                                margin: getMargin(bottom: 1)),
-                            Padding(
-                                padding:
-                                    getPadding(left: 35, top: 1, right: 62),
-                                child: Text("lbl_footer".tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
-                                    style: AppStyle.txtInterBlack16.copyWith(
-                                        height: getVerticalSize(1.00))))
-                          ])),
-                      Container(
-                          margin: getMargin(left: 31, top: 17, right: 19),
-                          padding: getPadding(
-                              left: 55, top: 6, right: 55, bottom: 6),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(children: [
-                            CustomImageView(
-                                svgPath: ImageConstant.imgMap,
-                                height: getVerticalSize(25.00),
-                                width: getHorizontalSize(24.00)),
-                            Padding(
-                                padding: getPadding(
-                                    left: 31, top: 3, right: 26, bottom: 2),
-                                child: Text("lbl_icon_group".tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
-                                    style: AppStyle.txtInterBlack16.copyWith(
-                                        height: getVerticalSize(1.00))))
-                          ])),
-                      Container(
-                          margin: getMargin(left: 31, top: 18, right: 19),
-                          padding: getPadding(
-                              left: 55, top: 8, right: 55, bottom: 8),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(children: [
-                            CustomImageView(
-                                svgPath: ImageConstant.imgMapWhiteA700,
-                                height: getVerticalSize(17.00),
-                                width: getHorizontalSize(24.00),
-                                margin: getMargin(top: 1, bottom: 2)),
-                            Padding(
-                                padding:
-                                    getPadding(left: 31, right: 63, bottom: 1),
-                                child: Text("lbl_bands".tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
-                                    style: AppStyle.txtInterBlack16.copyWith(
-                                        height: getVerticalSize(1.00))))
-                          ])),
-                      Container(
-                          margin: getMargin(left: 31, top: 20, right: 19),
-                          padding: getPadding(
-                              left: 55, top: 8, right: 55, bottom: 8),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(children: [
-                            CustomImageView(
-                                svgPath: ImageConstant.imgComputer,
-                                height: getVerticalSize(18.00),
-                                width: getHorizontalSize(24.00),
-                                margin: getMargin(bottom: 4)),
-                            Padding(
-                                padding:
-                                    getPadding(left: 31, right: 32, bottom: 1),
-                                child: Text("lbl_advanced".tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
-                                    style: AppStyle.txtInterBlack16.copyWith(
-                                        height: getVerticalSize(1.00))))
-                          ])),
-                      Container(
-                          margin: getMargin(left: 31, top: 20, right: 19),
-                          padding: getPadding(
-                              left: 55, top: 7, right: 55, bottom: 7),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CustomImageView(
-                                    svgPath: ImageConstant.imgQuestion,
-                                    height: getVerticalSize(18.00),
-                                    width: getHorizontalSize(26.00),
-                                    margin: getMargin(top: 1, bottom: 3)),
-                                Padding(
-                                    padding:
-                                        getPadding(left: 29, top: 3, right: 76),
-                                    child: Text("lbl_help".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle.txtInterBlack16
-                                            .copyWith(
-                                                height: getVerticalSize(1.00))))
-                              ])),
-                      Container(
-                          margin: getMargin(left: 31, top: 21, right: 19),
-                          padding: getPadding(
-                              left: 55, top: 7, right: 55, bottom: 7),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CustomImageView(
-                                    svgPath: ImageConstant.imgUpload,
-                                    height: getVerticalSize(16.00),
-                                    width: getHorizontalSize(24.00),
-                                    margin: getMargin(top: 2, bottom: 4)),
-                                Padding(
-                                    padding: getPadding(
-                                        left: 31, right: 53, bottom: 2),
-                                    child: Text("lbl_publish".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle.txtInterBlack16
-                                            .copyWith(
-                                                height: getVerticalSize(1.00))))
-                              ])),
-                      Container(
-                          margin: getMargin(
-                              left: 31, top: 21, right: 19, bottom: 5),
-                          padding: getPadding(
-                              left: 59, top: 7, right: 59, bottom: 7),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CustomImageView(
-                                    svgPath: ImageConstant.imgShare,
-                                    height: getVerticalSize(18.00),
-                                    width: getHorizontalSize(17.00),
-                                    margin: getMargin(bottom: 6)),
-                                Padding(
-                                    padding: getPadding(
-                                        left: 34, top: 1, right: 62, bottom: 2),
-                                    child: Text("lbl_share".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle.txtInterBlack16
-                                            .copyWith(
-                                                height: getVerticalSize(1.00))))
-                              ]))
+                        margin: getMargin(left: 31, top: 45, right: 19),
+                        padding:
+                            getPadding(left: 54, top: 8, right: 54, bottom: 8),
+                        decoration: AppDecoration.outlineBlack9003f1.copyWith(
+                            borderRadius: BorderRadiusStyle.roundedBorder5),
+                        child: GestureDetector(
+                            onTap: () {
+                              onTapFooter();
+                            },
+                            child: Row(children: [
+                              CustomImageView(
+                                  svgPath: ImageConstant.imgVideocamera,
+                                  height: getSize(21.00),
+                                  width: getSize(21.00),
+                                  margin: getMargin(bottom: 1)),
+                              Padding(
+                                  padding:
+                                      getPadding(left: 35, top: 1, right: 62),
+                                  child: Text("lbl_footer".tr,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                      style: AppStyle.txtInterBlack16.copyWith(
+                                          height: getVerticalSize(1.00))))
+                            ])),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapIconeGroup();
+                        },
+                        child: Container(
+                            margin: getMargin(left: 31, top: 17, right: 19),
+                            padding: getPadding(
+                                left: 55, top: 6, right: 55, bottom: 6),
+                            decoration: AppDecoration.outlineBlack9003f1
+                                .copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder5),
+                            child: Row(children: [
+                              CustomImageView(
+                                  svgPath: ImageConstant.imgMap,
+                                  height: getVerticalSize(25.00),
+                                  width: getHorizontalSize(24.00)),
+                              Padding(
+                                  padding: getPadding(
+                                      left: 31, top: 3, right: 26, bottom: 2),
+                                  child: Text("lbl_icon_group".tr,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                      style: AppStyle.txtInterBlack16.copyWith(
+                                          height: getVerticalSize(1.00))))
+                            ])),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBands();
+                        },
+                        child: Container(
+                            margin: getMargin(left: 31, top: 18, right: 19),
+                            padding: getPadding(
+                                left: 55, top: 8, right: 55, bottom: 8),
+                            decoration: AppDecoration.outlineBlack9003f1
+                                .copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder5),
+                            child: Row(children: [
+                              CustomImageView(
+                                  svgPath: ImageConstant.imgMapWhiteA700,
+                                  height: getVerticalSize(17.00),
+                                  width: getHorizontalSize(24.00),
+                                  margin: getMargin(top: 1, bottom: 2)),
+                              Padding(
+                                  padding: getPadding(
+                                      left: 31, right: 63, bottom: 1),
+                                  child: Text("lbl_bands".tr,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                      style: AppStyle.txtInterBlack16.copyWith(
+                                          height: getVerticalSize(1.00))))
+                            ])),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapadvnced();
+                        },
+                        child: Container(
+                            margin: getMargin(left: 31, top: 20, right: 19),
+                            padding: getPadding(
+                                left: 55, top: 8, right: 55, bottom: 8),
+                            decoration: AppDecoration.outlineBlack9003f1
+                                .copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder5),
+                            child: Row(children: [
+                              CustomImageView(
+                                  svgPath: ImageConstant.imgComputer,
+                                  height: getVerticalSize(18.00),
+                                  width: getHorizontalSize(24.00),
+                                  margin: getMargin(bottom: 4)),
+                              Padding(
+                                  padding: getPadding(
+                                      left: 31, right: 32, bottom: 1),
+                                  child: Text("lbl_advanced".tr,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                      style: AppStyle.txtInterBlack16.copyWith(
+                                          height: getVerticalSize(1.00))))
+                            ])),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapHelp();
+                        },
+                        child: Container(
+                            margin: getMargin(left: 31, top: 20, right: 19),
+                            padding: getPadding(
+                                left: 55, top: 7, right: 55, bottom: 7),
+                            decoration: AppDecoration.outlineBlack9003f1
+                                .copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder5),
+                            child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomImageView(
+                                      svgPath: ImageConstant.imgQuestion,
+                                      height: getVerticalSize(18.00),
+                                      width: getHorizontalSize(26.00),
+                                      margin: getMargin(top: 1, bottom: 3)),
+                                  Padding(
+                                      padding: getPadding(
+                                          left: 29, top: 3, right: 76),
+                                      child: Text("lbl_help".tr,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style: AppStyle.txtInterBlack16
+                                              .copyWith(
+                                                  height:
+                                                      getVerticalSize(1.00))))
+                                ])),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapPublish();
+                        },
+                        child: Container(
+                            margin: getMargin(left: 31, top: 21, right: 19),
+                            padding: getPadding(
+                                left: 55, top: 7, right: 55, bottom: 7),
+                            decoration: AppDecoration.outlineBlack9003f1
+                                .copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder5),
+                            child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomImageView(
+                                      svgPath: ImageConstant.imgUpload,
+                                      height: getVerticalSize(16.00),
+                                      width: getHorizontalSize(24.00),
+                                      margin: getMargin(top: 2, bottom: 4)),
+                                  Padding(
+                                      padding: getPadding(
+                                          left: 31, right: 53, bottom: 2),
+                                      child: Text("lbl_publish".tr,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style: AppStyle.txtInterBlack16
+                                              .copyWith(
+                                                  height:
+                                                      getVerticalSize(1.00))))
+                                ])),
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            onTapShare();
+                          },
+                          child: Container(
+                              margin: getMargin(
+                                  left: 31, top: 21, right: 19, bottom: 5),
+                              padding: getPadding(
+                                  left: 59, top: 7, right: 59, bottom: 7),
+                              decoration: AppDecoration.outlineBlack9003f1
+                                  .copyWith(
+                                      borderRadius:
+                                          BorderRadiusStyle.roundedBorder5),
+                              child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CustomImageView(
+                                        svgPath: ImageConstant.imgShare,
+                                        height: getVerticalSize(18.00),
+                                        width: getHorizontalSize(17.00),
+                                        margin: getMargin(bottom: 6)),
+                                    Padding(
+                                        padding: getPadding(
+                                            left: 34,
+                                            top: 1,
+                                            right: 62,
+                                            bottom: 2),
+                                        child: Text("lbl_share".tr,
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.left,
+                                            style: AppStyle.txtInterBlack16
+                                                .copyWith(
+                                                    height:
+                                                        getVerticalSize(1.00))))
+                                  ])))
                     ]))));
   }
 
   onTapArrowleft9() {
     Get.back();
+  }
+
+  onTapFooter() {
+    Get.toNamed(AppRoutes.footerScreen);
+  }
+
+  onTapIconeGroup() {
+    Get.toNamed(AppRoutes.iconGroupScreen);
+  }
+
+  onTapBands() {
+    Get.toNamed(AppRoutes.bandsScreen);
+  }
+
+  onTapadvnced() {
+    Get.toNamed(AppRoutes.advancedScreen);
+  }
+
+  onTapHelp() {
+    // Get.toNamed(AppRoutes.);
+  }
+
+  onTapPublish() {
+    // Get.toNamed(AppRoutes.);
+  }
+
+  onTapShare() {
+    Get.toNamed(AppRoutes.shareScreen);
   }
 }

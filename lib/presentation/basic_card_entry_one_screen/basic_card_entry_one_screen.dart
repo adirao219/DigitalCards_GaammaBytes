@@ -6,6 +6,7 @@ import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:digitalcards/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+
 class BasicCardEntryOneScreen extends StatefulWidget {
   const BasicCardEntryOneScreen({super.key});
 
@@ -13,6 +14,7 @@ class BasicCardEntryOneScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _BasicCardEntryOneScreen createState() => _BasicCardEntryOneScreen();
 }
+
 // ignore_for_file: must_be_immutable
 class _BasicCardEntryOneScreen extends State<BasicCardEntryOneScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -102,17 +104,25 @@ class _BasicCardEntryOneScreen extends State<BasicCardEntryOneScreen> {
                               shape: ButtonShape.RoundedBorder15,
                               fontStyle: ButtonFontStyle.NunitoSansRegular14),
                           Spacer(),
-                          CustomButton(
-                              height: 62,
-                              width: 295,
-                              text: "lbl_next".tr,
-                              margin: getMargin(bottom: 72),
-                              fontStyle: ButtonFontStyle.InterBlack16,
-                              alignment: Alignment.center)
+                          GestureDetector(
+                              onTap: () {
+                                onTapBussiness1Next();
+                              },
+                              child: CustomButton(
+                                  height: 62,
+                                  width: 295,
+                                  text: "lbl_next".tr,
+                                  margin: getMargin(bottom: 72),
+                                  fontStyle: ButtonFontStyle.InterBlack16,
+                                  alignment: Alignment.center))
                         ])))));
   }
 
   onTapArrowleft5() {
     Get.back();
+  }
+
+  onTapBussiness1Next() {
+    Get.toNamed(AppRoutes.cardEntryOneScreen);
   }
 }

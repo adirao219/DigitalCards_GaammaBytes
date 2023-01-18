@@ -1,4 +1,3 @@
-
 import 'package:digitalcards/core/app_export.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_iconbutton.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
@@ -106,76 +105,110 @@ class _CustomizationScreen extends State<CustomizationScreen> {
                                               offset: Offset(0, 4))
                                         ])))
                           ])),
-                      Container(
-                          margin: getMargin(left: 31, top: 51, right: 19),
-                          padding: getPadding(
-                              left: 55, top: 8, right: 55, bottom: 8),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(children: [
-                            CustomImageView(
-                                svgPath: ImageConstant.imgQuestion,
-                                height: getVerticalSize(18.00),
-                                width: getHorizontalSize(26.00),
-                                margin: getMargin(bottom: 2)),
-                            Padding(
-                                padding: getPadding(left: 29, right: 76),
-                                child: Text("lbl_help".tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
-                                    style: AppStyle.txtInterBlack16.copyWith(
-                                        height: getVerticalSize(1.00))))
-                          ])),
-                      Container(
-                          margin: getMargin(left: 31, top: 15, right: 19),
-                          padding: getPadding(
-                              left: 55, top: 7, right: 55, bottom: 7),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                      GestureDetector(
+                        onTap: () {
+                          onTapHelp();
+                        },
+                        child: Container(
+                            margin: getMargin(left: 31, top: 51, right: 19),
+                            padding: getPadding(
+                                left: 55, top: 8, right: 55, bottom: 8),
+                            decoration: AppDecoration.outlineBlack9003f1
+                                .copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder5),
+                            child: Row(children: [
+                              CustomImageView(
+                                  svgPath: ImageConstant.imgQuestion,
+                                  height: getVerticalSize(18.00),
+                                  width: getHorizontalSize(26.00),
+                                  margin: getMargin(bottom: 2)),
+                              Padding(
+                                  padding: getPadding(left: 29, right: 76),
+                                  child: Text("lbl_help".tr,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                      style: AppStyle.txtInterBlack16.copyWith(
+                                          height: getVerticalSize(1.00))))
+                            ])),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapPublish();
+                        },
+                        child: Container(
+                            margin: getMargin(left: 31, top: 15, right: 19),
+                            padding: getPadding(
+                                left: 55, top: 7, right: 55, bottom: 7),
+                            decoration: AppDecoration.outlineBlack9003f1
+                                .copyWith(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder5),
+                            child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomImageView(
+                                      svgPath: ImageConstant.imgUpload,
+                                      height: getVerticalSize(16.00),
+                                      width: getHorizontalSize(24.00),
+                                      margin: getMargin(top: 1, bottom: 5)),
+                                  Padding(
+                                      padding: getPadding(
+                                          left: 31, right: 53, bottom: 2),
+                                      child: Text("lbl_publish".tr,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style: AppStyle.txtInterBlack16
+                                              .copyWith(
+                                                  height:
+                                                      getVerticalSize(1.00))))
+                                ])),
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            onTapShare();
+                          },
+                          child: Container(
+                              margin: getMargin(
+                                  left: 31, top: 16, right: 19, bottom: 5),
+                              padding: getPadding(
+                                  left: 59, top: 8, right: 59, bottom: 8),
+                              decoration: AppDecoration.outlineBlack9003f1
+                                  .copyWith(
+                                      borderRadius:
+                                          BorderRadiusStyle.roundedBorder5),
+                              child: Row(children: [
                                 CustomImageView(
-                                    svgPath: ImageConstant.imgUpload,
-                                    height: getVerticalSize(16.00),
-                                    width: getHorizontalSize(24.00),
-                                    margin: getMargin(top: 1, bottom: 5)),
+                                    svgPath: ImageConstant.imgShare,
+                                    height: getVerticalSize(18.00),
+                                    width: getHorizontalSize(17.00),
+                                    margin: getMargin(bottom: 2)),
                                 Padding(
                                     padding: getPadding(
-                                        left: 31, right: 53, bottom: 2),
-                                    child: Text("lbl_publish".tr,
+                                        left: 34, right: 62, bottom: 1),
+                                    child: Text("lbl_share".tr,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
                                         style: AppStyle.txtInterBlack16
                                             .copyWith(
                                                 height: getVerticalSize(1.00))))
-                              ])),
-                      Container(
-                          margin: getMargin(
-                              left: 31, top: 16, right: 19, bottom: 5),
-                          padding: getPadding(
-                              left: 59, top: 8, right: 59, bottom: 8),
-                          decoration: AppDecoration.outlineBlack9003f1.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder5),
-                          child: Row(children: [
-                            CustomImageView(
-                                svgPath: ImageConstant.imgShare,
-                                height: getVerticalSize(18.00),
-                                width: getHorizontalSize(17.00),
-                                margin: getMargin(bottom: 2)),
-                            Padding(
-                                padding:
-                                    getPadding(left: 34, right: 62, bottom: 1),
-                                child: Text("lbl_share".tr,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
-                                    style: AppStyle.txtInterBlack16.copyWith(
-                                        height: getVerticalSize(1.00))))
-                          ]))
+                              ])))
                     ]))));
   }
 
   onTapArrowleft14() {
     Get.back();
+  }
+
+  onTapHelp() {
+    // Get.toNamed(AppRoutes.);
+  }
+
+  onTapPublish() {
+    // Get.toNamed(AppRoutes.);
+  }
+
+  onTapShare() {
+    Get.toNamed(AppRoutes.shareScreen);
   }
 }

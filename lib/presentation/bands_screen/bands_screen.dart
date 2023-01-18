@@ -135,4 +135,40 @@ class _BandsScreen extends State<BandsScreen> {
   onTapArrowleft23() {
     Get.back();
   }
+
+  onTapBandlink() {
+    Get.toNamed(AppRoutes.bandLinkScreen);
+  }
+
+  onTapBandNote() {
+    Get.toNamed(AppRoutes.bandNoteScreen);
+  }
+
+  onTapBandMap() {
+    Get.toNamed(AppRoutes.bandMapScreen);
+  }
+
+  onTapBandPicture() {
+    Get.toNamed(AppRoutes.bandPictureScreen);
+  }
+
+  onTapBandVideo() {
+    Get.toNamed(AppRoutes.bandVideoScreen);
+  }
+
+  onTapBandBankDetails() {
+    Get.toNamed(AppRoutes.bandBankaCdetailsScreen);
+  }
+
+  onTapContactBand() {
+    Get.toNamed(AppRoutes.bandContactbandScreen);
+  }
+
+  onTapBandIconGroup() {
+    Get.toNamed(AppRoutes.bandIcongroupScreen);
+  }
+
+  onTapBandUPI() {
+    Get.toNamed(AppRoutes.bandUpicardScreen);
+  }
 }

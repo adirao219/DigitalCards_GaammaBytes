@@ -13,10 +13,9 @@ class PictureLogoColorScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _PictureLogoColorScreen createState() => _PictureLogoColorScreen();
 }
-class _PictureLogoColorScreen extends State<PictureLogoColorScreen> {
 
-  
- TextEditingController _image_controller = new TextEditingController();
+class _PictureLogoColorScreen extends State<PictureLogoColorScreen> {
+  TextEditingController _image_controller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -216,8 +215,7 @@ class _PictureLogoColorScreen extends State<PictureLogoColorScreen> {
                             CustomTextFormField(
                                 width: 136,
                                 focusNode: FocusNode(),
-                                controller:
-                                    _image_controller,
+                                controller: _image_controller,
                                 hintText: "lbl_select_image".tr,
                                 margin: getMargin(right: 86),
                                 variant: TextFormFieldVariant.OutlineBlack9003f,
@@ -248,17 +246,25 @@ class _PictureLogoColorScreen extends State<PictureLogoColorScreen> {
                               color: ColorConstant.gray300Cc,
                               borderRadius: BorderRadius.circular(
                                   getHorizontalSize(1.00)))),
-                      CustomButton(
-                          height: 62,
-                          width: 295,
-                          text: "lbl_next".tr,
-                          margin: getMargin(top: 56, bottom: 5),
-                          fontStyle: ButtonFontStyle.InterBlack16,
-                          alignment: Alignment.center)
+                      GestureDetector(
+                          onTap: () {
+                            onTapEGreetingNext2();
+                          },
+                          child: CustomButton(
+                              height: 62,
+                              width: 295,
+                              text: "lbl_next".tr,
+                              margin: getMargin(top: 56, bottom: 5),
+                              fontStyle: ButtonFontStyle.InterBlack16,
+                              alignment: Alignment.center))
                     ]))));
   }
 
   onTapArrowleft13() {
     Get.back();
+  }
+
+  onTapEGreetingNext2() {
+    Get.toNamed(AppRoutes.customizationScreen);
   }
 }

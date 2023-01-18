@@ -101,6 +101,6 @@ class _HomeScreen extends State<HomeScreen> {
   }
 
   onTapDrawerleft() {
-    Get.back();
+    // Get.toNamed(AppRoutes.);
   }
 }

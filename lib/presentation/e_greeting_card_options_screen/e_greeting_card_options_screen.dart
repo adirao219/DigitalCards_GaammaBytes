@@ -3,6 +3,7 @@ import 'package:digitalcards/widgets/app_bar/appbar_iconbutton.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
 import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+
 class EGreetingCardOptionsScreen extends StatefulWidget {
   const EGreetingCardOptionsScreen({super.key});
 
@@ -10,8 +11,8 @@ class EGreetingCardOptionsScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _EGreetingCardOptionsScreen createState() => _EGreetingCardOptionsScreen();
 }
-class _EGreetingCardOptionsScreen
-    extends State<EGreetingCardOptionsScreen> {
+
+class _EGreetingCardOptionsScreen extends State<EGreetingCardOptionsScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -123,17 +124,25 @@ class _EGreetingCardOptionsScreen
                                                                 .bottomRight)
                                                       ])))
                                         ]))),
-                            CustomImageView(
-                                imagePath:
-                                    ImageConstant.imgWhatsappimage20221230,
-                                height: getVerticalSize(134.00),
-                                width: getHorizontalSize(172.00),
-                                alignment: Alignment.bottomRight)
+                            GestureDetector(
+                                onTap: () {
+                                  onTapeEGreeting();
+                                },
+                                child: CustomImageView(
+                                    imagePath:
+                                        ImageConstant.imgWhatsappimage20221230,
+                                    height: getVerticalSize(134.00),
+                                    width: getHorizontalSize(172.00),
+                                    alignment: Alignment.bottomRight))
                           ]))
                     ]))));
   }
 
   onTapArrowleft10() {
     Get.back();
+  }
+
+  onTapeEGreeting() {
+    Get.toNamed(AppRoutes.basicCardEntryScreen);
   }
 }

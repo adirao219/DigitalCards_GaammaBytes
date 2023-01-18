@@ -1,4 +1,3 @@
-
 import 'package:digitalcards/core/app_export.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_iconbutton.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
@@ -16,8 +15,6 @@ class CardEntryScreen extends StatefulWidget {
 }
 
 class _CardEntryScreen extends State<CardEntryScreen> {
-
-
   TextEditingController _captioncontroller = new TextEditingController();
   TextEditingController _message_controller = new TextEditingController();
   TextEditingController _sender_controller = new TextEditingController();
@@ -79,13 +76,13 @@ class _CardEntryScreen extends State<CardEntryScreen> {
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller:_captioncontroller,
+                          controller: _captioncontroller,
                           hintText: "lbl_caption".tr,
                           margin: getMargin(top: 65)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
-                          controller:_message_controller,
+                          controller: _message_controller,
                           hintText: "lbl_message".tr,
                           margin: getMargin(top: 24)),
                       CustomTextFormField(
@@ -96,16 +93,24 @@ class _CardEntryScreen extends State<CardEntryScreen> {
                           margin: getMargin(top: 23),
                           textInputAction: TextInputAction.done,
                           alignment: Alignment.centerRight),
-                      CustomButton(
-                          height: 62,
-                          width: 295,
-                          text: "lbl_next".tr,
-                          margin: getMargin(top: 28, bottom: 5),
-                          fontStyle: ButtonFontStyle.InterBlack16)
+                      GestureDetector(
+                          onTap: () {
+                            onTapEGreetingNext1();
+                          },
+                          child: CustomButton(
+                              height: 62,
+                              width: 295,
+                              text: "lbl_next".tr,
+                              margin: getMargin(top: 28, bottom: 5),
+                              fontStyle: ButtonFontStyle.InterBlack16))
                     ]))));
   }
 
   onTapArrowleft12() {
     Get.back();
+  }
+
+  onTapEGreetingNext1() {
+    Get.toNamed(AppRoutes.pictureLogoColorScreen);
   }
 }
