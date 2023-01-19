@@ -14,7 +14,8 @@ class CustomButton extends StatelessWidget {
       this.height,
       this.text,
       this.prefixWidget,
-      this.suffixWidget});
+      this.suffixWidget,
+      this.customColor});
 
   ButtonShape? shape;
 
@@ -39,6 +40,7 @@ class CustomButton extends StatelessWidget {
   Widget? prefixWidget;
 
   Widget? suffixWidget;
+  Color? customColor;
 
   @override
   Widget build(BuildContext context) {
@@ -121,13 +123,17 @@ class CustomButton extends StatelessWidget {
   }
 
   _setColor() {
-    switch (variant) {
-      case ButtonVariant.OutlineBlack9003f:
-        return ColorConstant.pink900;
-      case ButtonVariant.OutlineBlack9003f_1:
-        return ColorConstant.deepOrangeA10033;
-      default:
-        return ColorConstant.pink900;
+    if (customColor == null) {
+      switch (variant) {
+        case ButtonVariant.OutlineBlack9003f:
+          return ColorConstant.pink900;
+        case ButtonVariant.OutlineBlack9003f_1:
+          return ColorConstant.deepOrangeA10033;
+        default:
+          return ColorConstant.pink900;
+      }
+    } else {
+      return customColor;
     }
   }
 
@@ -233,16 +239,19 @@ enum ButtonShape {
   RoundedBorder15,
   RoundedBorder5,
 }
+
 enum ButtonPadding {
   PaddingAll19,
   PaddingT10,
   PaddingT3,
 }
+
 enum ButtonVariant {
   FillPink900,
   OutlineBlack9003f,
   OutlineBlack9003f_1,
 }
+
 enum ButtonFontStyle {
   NunitoSansBlack16,
   InterSemiBold20,

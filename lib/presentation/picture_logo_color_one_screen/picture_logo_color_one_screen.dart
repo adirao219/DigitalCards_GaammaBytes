@@ -5,6 +5,9 @@ import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:digitalcards/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class PictureLogoColorOneScreen extends StatefulWidget {
   const PictureLogoColorOneScreen({super.key});
@@ -16,6 +19,17 @@ class PictureLogoColorOneScreen extends StatefulWidget {
 
 class _PictureLogoColorOneScreen extends State<PictureLogoColorOneScreen> {
   TextEditingController _image_controller = new TextEditingController();
+  Color pickerColor = Color(0xff443a49);
+  Color? currentColor;
+  ImagePicker _picker = new ImagePicker();
+
+  bool isImageSelected = false;
+  XFile? image;
+// ValueChanged<Color> callback
+  void changeColor(Color color) {
+    setState(() => pickerColor = color);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -70,49 +84,134 @@ class _PictureLogoColorOneScreen extends State<PictureLogoColorOneScreen> {
                                         height: getVerticalSize(1.00)))
                               ]),
                               textAlign: TextAlign.left)),
-                      Container(
-                          height: getVerticalSize(149.00),
-                          width: getHorizontalSize(340.00),
-                          margin: getMargin(top: 48),
+                       Container(
+                          height: getVerticalSize(135.00),
+                          width: getHorizontalSize(326.00),
+                          margin: getMargin(top: 62),
                           child:
-                              Stack(alignment: Alignment.topCenter, children: [
+                              Stack(alignment: Alignment.topRight, children: [
                             Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Padding(
-                                    padding: getPadding(right: 13),
-                                    child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Text("lbl_logo_picture".tr,
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle
-                                                  .txtNunitoSansRegular14
-                                                  .copyWith(
-                                                      letterSpacing:
-                                                          getHorizontalSize(
-                                                              0.36),
-                                                      height: getVerticalSize(
-                                                          1.26))),
-                                          Container(
-                                              height: getVerticalSize(1.00),
-                                              width: getHorizontalSize(326.00),
-                                              margin:
-                                                  getMargin(left: 1, top: 11),
-                                              decoration: BoxDecoration(
-                                                  color:
-                                                      ColorConstant.gray300Cc,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          getHorizontalSize(
-                                                              1.00)))),
-                                          Padding(
-                                              padding: getPadding(top: 23),
-                                              child: Text("lbl_card_color".tr,
+                                alignment: Alignment.center,
+                                child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: getPadding(left: 6),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                    padding:
+                                                        getPadding(bottom: 3),
+                                                    child: Text(
+                                                        "lbl_logo_picture".tr,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        textAlign:
+                                                            TextAlign.left,
+                                                        style: AppStyle
+                                                            .txtNunitoSansRegular14
+                                                            .copyWith(
+                                                                letterSpacing:
+                                                                    getHorizontalSize(
+                                                                        0.36),
+                                                                height:
+                                                                    getVerticalSize(
+                                                                        1.26)))),
+                                                CustomButton(
+                                                    onTap: removeSelectedImage,
+                                                    height: 23,
+                                                    width: 81,
+                                                    text: "lbl_remove".tr,
+                                                    variant: ButtonVariant
+                                                        .OutlineBlack9003f,
+                                                    shape: ButtonShape
+                                                        .RoundedBorder5,
+                                                    padding:
+                                                        ButtonPadding.PaddingT3,
+                                                    fontStyle: ButtonFontStyle
+                                                        .InterRegular12,
+                                                    prefixWidget: Container(
+                                                        margin:
+                                                            getMargin(right: 9),
+                                                        child: CustomImageView(
+                                                            svgPath: ImageConstant
+                                                                .imgIconAlternateTrash)))
+                                              ])),
+                                      Container(
+                                          height: getVerticalSize(1.00),
+                                          width: getHorizontalSize(326.00),
+                                          margin: getMargin(top: 8),
+                                          child: Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Align(
+                                                    alignment: Alignment.center,
+                                                    child: Container(
+                                                        height: getVerticalSize(
+                                                            1.00),
+                                                        width:
+                                                            getHorizontalSize(
+                                                                326.00),
+                                                        decoration: BoxDecoration(
+                                                            color: ColorConstant
+                                                                .gray300Cc,
+                                                            borderRadius:
+                                                                BorderRadius.circular(
+                                                                    getHorizontalSize(
+                                                                        1.00))))),
+                                                Align(
+                                                    alignment: Alignment.center,
+                                                    child: Container(
+                                                        height: getVerticalSize(
+                                                            1.00),
+                                                        width:
+                                                            getHorizontalSize(
+                                                                326.00),
+                                                        child: Stack(
+                                                            alignment: Alignment
+                                                                .center,
+                                                            children: [
+                                                              Align(
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  child: Container(
+                                                                      height: getVerticalSize(
+                                                                          1.00),
+                                                                      width: getHorizontalSize(
+                                                                          326.00),
+                                                                      decoration: BoxDecoration(
+                                                                          color: ColorConstant
+                                                                              .gray300Cc,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(getHorizontalSize(1.00))))),
+                                                              Align(
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  child: Container(
+                                                                      height: getVerticalSize(
+                                                                          1.00),
+                                                                      width: getHorizontalSize(
+                                                                          326.00),
+                                                                      decoration: BoxDecoration(
+                                                                          color: ColorConstant
+                                                                              .gray300Cc,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(getHorizontalSize(1.00)))))
+                                                            ])))
+                                              ])),
+                                      Padding(
+                                          padding: getPadding(top: 23),
+                                          child: Row(
+                                            children: [
+                                              Text("lbl_card_color".tr,
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   textAlign: TextAlign.left,
@@ -124,63 +223,93 @@ class _PictureLogoColorOneScreen extends State<PictureLogoColorOneScreen> {
                                                                   0.36),
                                                           height:
                                                               getVerticalSize(
-                                                                  1.26)))),
-                                          CustomImageView(
-                                              imagePath:
-                                                  ImageConstant.imgScreenshot56,
-                                              height: getVerticalSize(22.00),
-                                              width: getHorizontalSize(326.00),
-                                              margin: getMargin(top: 33))
-                                        ]))),
+                                                                  1.26))),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              CustomButton(
+                                                  customColor: currentColor,
+                                                  onTap: () {
+                                                    showDialog(
+                                                        context: context,
+                                                        builder: (ctx) =>
+                                                            AlertDialog(
+                                                                title: const Text(
+                                                                    'Pick a color!'),
+                                                                content:
+                                                                    SingleChildScrollView(
+                                                                  child:
+                                                                      ColorPicker(
+                                                                    pickerColor:
+                                                                        pickerColor,
+                                                                    onColorChanged:
+                                                                        changeColor,
+                                                                  ),
+                                                                ),
+                                                                actions: <
+                                                                    Widget>[
+                                                                  ElevatedButton(
+                                                                    child: const Text(
+                                                                        'Got it'),
+                                                                    onPressed:
+                                                                        () {
+                                                                      setState(() =>
+                                                                          currentColor =
+                                                                              pickerColor);
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                    },
+                                                                  ),
+                                                                ]));
+                                                  },
+                                                  height: 34,
+                                                  width: 92,
+                                                  text: "lbl_card_color".tr,
+                                                  margin: getMargin(top: 7),
+                                                  variant: ButtonVariant
+                                                      .OutlineBlack9003f,
+                                                  shape: ButtonShape
+                                                      .RoundedBorder5,
+                                                  padding:
+                                                      ButtonPadding.PaddingT10,
+                                                  fontStyle: ButtonFontStyle
+                                                      .InterBlack10,
+                                                  alignment: Alignment.topRight)
+                                            ],
+                                          )),
+                                    ])),
                             GestureDetector(
                               onTap: () {
                                 onTapSelectPicture1();
                               },
-                              child: CustomTextFormField(
-                                  width: 155,
-                                  focusNode: FocusNode(),
-                                  controller: _image_controller,
-                                  hintText: "lbl_select_image".tr,
-                                  variant:
-                                      TextFormFieldVariant.OutlineBlack9003f,
-                                  padding: TextFormFieldPadding.PaddingT12,
-                                  fontStyle:
-                                      TextFormFieldFontStyle.InterBlack12,
-                                  textInputAction: TextInputAction.done,
-                                  alignment: Alignment.topCenter,
-                                  prefix: Container(
-                                      margin: getMargin(
-                                          left: 14,
-                                          top: 12,
-                                          right: 11,
-                                          bottom: 11),
-                                      child: CustomImageView(
-                                          svgPath: ImageConstant.imgMap)),
-                                  prefixConstraints: BoxConstraints(
-                                      maxHeight: getVerticalSize(42.00))),
-                            ),
-                            CustomButton(
-                                height: 34,
-                                width: 92,
-                                text: "lbl_remove".tr,
-                                margin: getMargin(top: 7),
+                              child: 
+                              CustomButton(
+                                width: 120,
+                                text: (isImageSelected
+                                    ? "lbl_image_selected".tr
+                                    : "lbl_select_image".tr),
                                 variant: ButtonVariant.OutlineBlack9003f,
                                 shape: ButtonShape.RoundedBorder5,
                                 padding: ButtonPadding.PaddingT10,
                                 fontStyle: ButtonFontStyle.InterBlack10,
+                                alignment: Alignment.topCenter,
                                 prefixWidget: Container(
                                     margin: getMargin(right: 10),
-                                    child: CustomImageView(
-                                        svgPath: ImageConstant
-                                            .imgIconAlternateTrash)),
-                                alignment: Alignment.topRight)
+                                    child: Icon( 
+                                      (isImageSelected
+                                    ?Icons.done:Icons.photo), color: Colors.white,size: 15,)),
+                              ),
+                            ),
                           ])),
-                      CustomImageView(
-                          imagePath: ImageConstant.imgScreenshot57,
-                          height: getVerticalSize(153.00),
-                          width: getHorizontalSize(133.00),
-                          radius:
-                              BorderRadius.circular(getHorizontalSize(5.00))),
+                      Container(
+                          height: getVerticalSize(1.00),
+                          width: getHorizontalSize(326.00),
+                          margin: getMargin(top: 26),
+                          decoration: BoxDecoration(
+                              color: ColorConstant.gray300Cc,
+                              borderRadius: BorderRadius.circular(
+                                  getHorizontalSize(1.00)))),
                       GestureDetector(
                           onTap: () {
                             onTapBussiness3Next();
@@ -204,6 +333,55 @@ class _PictureLogoColorOneScreen extends State<PictureLogoColorOneScreen> {
   }
 
   onTapSelectPicture1() {
-    Get.toNamed(AppRoutes.imageModifyScreen);
+    showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+                title: const Text('Select Type!'),
+                content: const SingleChildScrollView(
+                    child: Text(
+                        "You can select an image from gallery or click a picture using camera")),
+                actions: <Widget>[
+                  ElevatedButton(
+                    child: const Text('Camera'),
+                    onPressed: () {
+                      clickOrSelectImage("Camera");
+                    },
+                  ),
+                  ElevatedButton(
+                    child: const Text('Gallery'),
+                    onPressed: () {
+                      clickOrSelectImage("Gallery");
+                    },
+                  ),
+                ]));
+  }
+
+  clickOrSelectImage(String type) async {
+    Navigator.of(context).pop();
+    if (type == "Gallery") {
+      image = await _picker.pickImage(source: ImageSource.gallery);
+    } else {
+      image = await _picker.pickImage(source: ImageSource.camera);
+    }
+    if (image != null) {
+      setState(() {
+        isImageSelected = true;
+      });
+      var imageFile = File(image!.path);
+      Get.toNamed(AppRoutes.imageModifyScreen,
+          arguments: {"imagePath": imageFile})?.then((value) {
+        double? width = value['width'];
+        double? height = value['height'];
+        bool? isSquare = value['isSquare'];
+      });
+    }
+  }
+
+  removeSelectedImage() {
+    setState(() {
+      image = null;
+
+      isImageSelected = false;
+    });
   }
 }

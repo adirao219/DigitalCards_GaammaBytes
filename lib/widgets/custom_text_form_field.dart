@@ -21,7 +21,8 @@ class CustomTextFormField extends StatelessWidget {
       this.prefixConstraints,
       this.suffix,
       this.suffixConstraints,
-      this.validator});
+      this.validator,
+      this.onChanged});
 
   TextFormFieldPadding? padding;
 
@@ -34,7 +35,7 @@ class CustomTextFormField extends StatelessWidget {
   Alignment? alignment;
 
   double? width;
-
+Function(String)? onChanged;
   EdgeInsetsGeometry? margin;
 
   TextEditingController? controller;
@@ -82,6 +83,7 @@ class CustomTextFormField extends StatelessWidget {
         obscureText: isObscureText!,
         textInputAction: textInputAction,
         keyboardType: textInputType,
+        onChanged: onChanged,
         maxLines: maxLines ?? 1,
         decoration: _buildDecoration(),
         validator: validator,
