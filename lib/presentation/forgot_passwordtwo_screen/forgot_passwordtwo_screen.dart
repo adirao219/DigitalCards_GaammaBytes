@@ -4,6 +4,7 @@ import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
 import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+
 class ForgotPasswordtwoScreen extends StatefulWidget {
   const ForgotPasswordtwoScreen({super.key});
 
@@ -11,6 +12,7 @@ class ForgotPasswordtwoScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _ForgotPasswordtwoScreen createState() => _ForgotPasswordtwoScreen();
 }
+
 class _ForgotPasswordtwoScreen extends State<ForgotPasswordtwoScreen> {
   @override
   Widget build(BuildContext context) {
@@ -35,8 +37,7 @@ class _ForgotPasswordtwoScreen extends State<ForgotPasswordtwoScreen> {
                           onTap: onTapArrowleft3)
                     ])),
                 styleType: Style.bgStyle_3),
-            body: Container(
-                width: size.width,
+            body: SingleChildScrollView(
                 padding: getPadding(left: 31, top: 27, right: 31, bottom: 27),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,104 +50,94 @@ class _ForgotPasswordtwoScreen extends State<ForgotPasswordtwoScreen> {
                               textAlign: TextAlign.left,
                               style: AppStyle.txtInterSemiBold20
                                   .copyWith(height: getVerticalSize(1.00)))),
-                      Container(
-                          height: getVerticalSize(66.00),
-                          width: getHorizontalSize(295.00),
-                          margin: getMargin(top: 24),
-                          child: Stack(alignment: Alignment.topLeft, children: [
-                            Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Container(
-                                    padding: getPadding(
-                                        left: 20,
-                                        top: 16,
-                                        right: 20,
-                                        bottom: 16),
-                                    decoration: AppDecoration.outlineGray200
-                                        .copyWith(
-                                            borderRadius: BorderRadiusStyle
-                                                .roundedBorder15),
-                                    child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                              padding: getPadding(top: 3),
-                                              child: Text("lbl".tr,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: AppStyle
-                                                      .txtNunitoSansBold16
-                                                      .copyWith(
-                                                          height:
-                                                              getVerticalSize(
-                                                                  1.10))))
-                                        ]))),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Padding(
-                                    padding: getPadding(left: 23),
-                                    child: Text("lbl_new_password".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle.txtNunitoSansRegular12
-                                            .copyWith(
-                                                height:
-                                                    getVerticalSize(1.10)))))
-                          ])),
-                      Container(
-                          height: getVerticalSize(66.00),
-                          width: getHorizontalSize(295.00),
-                          margin: getMargin(top: 14),
-                          child: Stack(alignment: Alignment.topLeft, children: [
-                            Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Container(
-                                    padding: getPadding(
-                                        left: 20,
-                                        top: 16,
-                                        right: 20,
-                                        bottom: 16),
-                                    decoration: AppDecoration.outlineGray200
-                                        .copyWith(
-                                            borderRadius: BorderRadiusStyle
-                                                .roundedBorder15),
-                                    child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                              padding: getPadding(top: 3),
-                                              child: Text("lbl".tr,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: AppStyle
-                                                      .txtNunitoSansBold16
-                                                      .copyWith(
-                                                          height:
-                                                              getVerticalSize(
-                                                                  1.10))))
-                                        ]))),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Padding(
-                                    padding: getPadding(left: 28),
-                                    child: Text("lbl_confirm".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle.txtNunitoSansRegular12
-                                            .copyWith(
-                                                height:
-                                                    getVerticalSize(1.10)))))
-                          ])),
+                      const SizedBox(height: 25),
+                      TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          // validator: (text) {
+                          //   if (_emailController.text == null ||
+                          //       _emailController.text.trim().isEmpty) {
+                          //     return 'Please enter your email address';
+                          //   }
+                          //   // Check if the entered email has the right format
+                          //   if (!RegExp(r'\S+@\S+\.\S+')
+                          //       .hasMatch(_emailController.text)) {
+                          //     return 'Please enter a valid email address';
+                          //   }
+                          //   if (_emailController.text.trim().length >
+                          //       35) {
+                          //     return 'Email should not be more than 35 characters in length';
+                          //   }
+                          //   return null;
+                          // },
+                          // onChanged: (text) =>
+                          //     setState(() => _name = text),
+
+                          // controller: _phoneController,
+                          decoration: InputDecoration(
+                            labelText: "lbl_new_password".tr,
+                            labelStyle: AppStyle.txtNunitoSansRegular12
+                                .copyWith(
+                                    height: getVerticalSize(1.10),
+                                    fontSize: 15),
+
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                              borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 183, 183, 183),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 183, 183, 183),
+                                )),
+                            // filled: true,
+                            contentPadding: EdgeInsets.all(17.0),
+                          )),
+                      const SizedBox(height: 35),
+                      TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          // validator: (text) {
+                          //   if (_emailController.text == null ||
+                          //       _emailController.text.trim().isEmpty) {
+                          //     return 'Please enter your email address';
+                          //   }
+                          //   // Check if the entered email has the right format
+                          //   if (!RegExp(r'\S+@\S+\.\S+')
+                          //       .hasMatch(_emailController.text)) {
+                          //     return 'Please enter a valid email address';
+                          //   }
+                          //   if (_emailController.text.trim().length >
+                          //       35) {
+                          //     return 'Email should not be more than 35 characters in length';
+                          //   }
+                          //   return null;
+                          // },
+                          // onChanged: (text) =>
+                          //     setState(() => _name = text),
+
+                          // controller: _phoneController,
+                          decoration: InputDecoration(
+                            labelText: "lbl_confirm".tr,
+                            labelStyle: AppStyle.txtNunitoSansRegular12
+                                .copyWith(
+                                    height: getVerticalSize(1.10),
+                                    fontSize: 15),
+
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                              borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 183, 183, 183),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15.0),
+                                borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 183, 183, 183),
+                                )),
+                            // filled: true,
+                            contentPadding: EdgeInsets.all(17.0),
+                          )),
                       CustomButton(
                           height: 62,
                           width: 295,
