@@ -20,7 +20,30 @@ class TemplatePreviewScreen extends StatefulWidget {
 }
 
 class _TemplatePreviewScreen extends State<TemplatePreviewScreen> {
- 
+ var htmlContent= '''
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h2>Round Card</h2>
+
+<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;">
+  <img src="https://www.w3schools.com/howto/img_avatar2.png" style="border-radius: 5px 5px 0 0;" alt="Avatar" style="width:100%">
+  <div class="container" style=" padding: 2px 16px;">
+    <h4><b>Jane Doe</b></h4> 
+    <p>Interior Designer</p> 
+  </div>
+</div>
+
+</body>
+</html> 
+
+  ''';
 
   @override
   Widget build(BuildContext context) {
@@ -61,30 +84,7 @@ class _TemplatePreviewScreen extends State<TemplatePreviewScreen> {
                    padding:  getPadding(left: 10, top: 10, right: 10, bottom: 10),
                     child: 
                 HtmlWidget(
-              '''
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-
-<h2>Round Card</h2>
-
-<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;">
-  <img src="https://www.w3schools.com/howto/img_avatar2.png" style="border-radius: 5px 5px 0 0;" alt="Avatar" style="width:100%">
-  <div class="container" style=" padding: 2px 16px;">
-    <h4><b>Jane Doe</b></h4> 
-    <p>Interior Designer</p> 
-  </div>
-</div>
-
-</body>
-</html> 
-
-  ''',
+             htmlContent,
               customStylesBuilder: (element) {
                 if (element.classes.contains('foo')) {
                   return {'color': 'red'};
