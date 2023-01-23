@@ -2,6 +2,7 @@ import 'package:digitalcards/core/app_export.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_iconbutton.dart';
 import 'package:digitalcards/widgets/app_bar/appbar_image.dart';
 import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
+import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomizationOneScreen extends StatefulWidget {
@@ -67,25 +68,32 @@ class _CustomizationOneScreen extends State<CustomizationOneScreen> {
                                             height: getVerticalSize(1.00)))
                                   ]),
                                   textAlign: TextAlign.left))),
-                      Container(
+                        GestureDetector(
+                                onTap: () {
+                                  onCardPreview();
+                                },
+                                child:Container(
                           height: getVerticalSize(60.00),
                           width: getHorizontalSize(325.00),
                           margin: getMargin(top: 32),
                           child: Stack(alignment: Alignment.center, children: [
-                            Align(
-                                alignment: Alignment.topCenter,
-                                child: Padding(
-                                    padding: getPadding(top: 18),
-                                    child: Text("lbl_card_preview".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle
-                                            .txtNunitoSansRegular14Pink900
-                                            .copyWith(
-                                                letterSpacing:
-                                                    getHorizontalSize(0.36),
-                                                height:
-                                                    getVerticalSize(1.26))))),
+                          
+                             
+                                 Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Padding(
+                                        padding: getPadding(top: 18),
+                                        child: Text("lbl_card_preview".tr,
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.left,
+                                            style: AppStyle
+                                                .txtNunitoSansRegular14Pink900
+                                                .copyWith(
+                                                    letterSpacing:
+                                                        getHorizontalSize(0.36),
+                                                    height: getVerticalSize(
+                                                        1.26)))))
+                                                        ,
                             Align(
                                 alignment: Alignment.center,
                                 child: Container(
@@ -104,7 +112,7 @@ class _CustomizationOneScreen extends State<CustomizationOneScreen> {
                                                   getHorizontalSize(2.00),
                                               offset: Offset(0, 4))
                                         ])))
-                          ])),
+                          ]))),
                       Container(
                         margin: getMargin(left: 31, top: 45, right: 19),
                         padding:
@@ -346,5 +354,9 @@ class _CustomizationOneScreen extends State<CustomizationOneScreen> {
 
   onTapShare() {
     Get.toNamed(AppRoutes.shareScreen);
+  }
+
+  onCardPreview() {
+    Get.toNamed(AppRoutes.cardpreview);
   }
 }

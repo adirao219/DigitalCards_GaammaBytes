@@ -67,25 +67,27 @@ class _CustomizationScreen extends State<CustomizationScreen> {
                                             height: getVerticalSize(1.00)))
                                   ]),
                                   textAlign: TextAlign.left))),
-                      Container(
+                  GestureDetector(
+                                onTap: onCardPreview,
+                                child:    Container(
                           height: getVerticalSize(60.00),
                           width: getHorizontalSize(325.00),
                           margin: getMargin(top: 32),
                           child: Stack(alignment: Alignment.center, children: [
-                            Align(
-                                alignment: Alignment.topCenter,
-                                child: Padding(
-                                    padding: getPadding(top: 18),
-                                    child: Text("lbl_card_preview".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle
-                                            .txtNunitoSansRegular14Pink900
-                                            .copyWith(
-                                                letterSpacing:
-                                                    getHorizontalSize(0.36),
-                                                height:
-                                                    getVerticalSize(1.26))))),
+                             Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Padding(
+                                        padding: getPadding(top: 18),
+                                        child: Text("lbl_card_preview".tr,
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.left,
+                                            style: AppStyle
+                                                .txtNunitoSansRegular14Pink900
+                                                .copyWith(
+                                                    letterSpacing:
+                                                        getHorizontalSize(0.36),
+                                                    height: getVerticalSize(
+                                                        1.26))))),
                             Align(
                                 alignment: Alignment.center,
                                 child: Container(
@@ -104,7 +106,7 @@ class _CustomizationScreen extends State<CustomizationScreen> {
                                                   getHorizontalSize(2.00),
                                               offset: Offset(0, 4))
                                         ])))
-                          ])),
+                          ]))),
                       GestureDetector(
                         onTap: () {
                           onTapHelp();
@@ -210,5 +212,9 @@ class _CustomizationScreen extends State<CustomizationScreen> {
 
   onTapShare() {
     Get.toNamed(AppRoutes.shareScreen);
+  }
+
+  onCardPreview() {
+    Get.toNamed(AppRoutes.cardpreview);
   }
 }

@@ -123,6 +123,8 @@ final Map<String, String> enUs = {
   "lbl_foursquare": "Foursquare",
   "lbl_my_profile": "My Profile",
   "lbl_select_image": "Select Image",
+  "lbl_select_template": "Select Template",
+  "lbl_card_preview": "Preview your Card",
   "lbl_image_selected": "Image Selected",
   "lbl_payment_amount": "Payment Amount: ",
   "lbl_steve_smith": "Steve Smith",

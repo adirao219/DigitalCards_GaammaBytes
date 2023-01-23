@@ -367,9 +367,9 @@ class _PictureLogoColorOneScreen extends State<PictureLogoColorOneScreen> {
       setState(() {
         isImageSelected = true;
       });
-      var imageFile = File(image!.path);
+      File imageFile = File(image!.path);
       Get.toNamed(AppRoutes.imageModifyScreen,
-          arguments: {"imagePath": imageFile})?.then((value) {
+          arguments: {"imageFile": imageFile})?.then((value) {
         double? width = value['width'];
         double? height = value['height'];
         bool? isSquare = value['isSquare'];

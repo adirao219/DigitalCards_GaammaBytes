@@ -5,6 +5,7 @@ import 'package:digitalcards/widgets/app_bar/appbar_title.dart';
 import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 
 import 'dart:io';
 import '../../widgets/custom_text_form_field.dart';
@@ -18,10 +19,19 @@ class ImageModifyScreen extends StatefulWidget {
 }
 
 class _ImageModifyScreen extends State<ImageModifyScreen> {
-  File imageFile = Get.arguments["imagePath"] as File;
+  File imageFile = Get.arguments["imageFile"] as File;
   bool isSquareSelected = true;
   TextEditingController _size_x_controller = new TextEditingController();
   TextEditingController _size_y_controller = new TextEditingController();
+CroppedFile? croppedFile;
+
+@override
+  void initState()
+{
+cropImageFromPath();
+super.initState();
+}
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -84,6 +94,7 @@ class _ImageModifyScreen extends State<ImageModifyScreen> {
                                   children: [
                                     InkWell(
                                         onTap: (() {
+                                          //cropImageFromPath();
                                           setState(() {
                                             isSquareSelected = true;
                                           });
@@ -273,5 +284,40 @@ class _ImageModifyScreen extends State<ImageModifyScreen> {
 
   onTapArrowleft20() {
     Get.back(result: {"width": null, "height": null, "isSquare": null});
+  }
+
+  cropImageFromPath() async {
+   croppedFile = await 
+   ImageCropper().cropImage(
+      sourcePath: imageFile.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      uiSettings: [
+        AndroidUiSettings(
+            toolbarTitle: 'Image Cropper',
+            toolbarColor: Colors.deepOrange[900],
+            toolbarWidgetColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.original,
+            
+            lockAspectRatio: false),
+        IOSUiSettings(
+          title: 'Cropper',
+        ),
+        WebUiSettings(
+          context: context,
+        ),
+      ],
+    );
+    setState(() {
+      if(croppedFile!=null)
+      {
+      
+    imageFile =File(croppedFile!.path);
+   } });
   }
 }

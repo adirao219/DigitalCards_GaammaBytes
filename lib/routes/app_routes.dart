@@ -38,6 +38,8 @@ import 'package:digitalcards/presentation/band_icongroup_screen/band_icongroup_s
 import 'package:digitalcards/presentation/band_banka_cdetails_screen/band_banka_cdetails_screen.dart';
 import 'package:digitalcards/presentation/band_upicard_screen/band_upicard_screen.dart';
 import 'package:digitalcards/presentation/app_navigation_screen/app_navigation_screen.dart';
+import 'package:digitalcards/presentation/template_preview/template_preview.dart';
+import 'package:digitalcards/presentation/card_preview/card_preview.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -118,6 +120,10 @@ class AppRoutes {
   static const String bandBankaCdetailsScreen = '/band_banka_cdetails_screen';
 
   static const String bandUpicardScreen = '/band_upicard_screen';
+
+  static const String cardpreview = '/card_preview';
+
+  static const String templatepreview = '/template_preview';
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
@@ -229,7 +235,7 @@ class AppRoutes {
     ),
     GetPage(
       name: bandsScreen,
-      page: () => BandsScreen(),
+      page: () =>const BandsScreen(),
     ),
     GetPage(
       name: linkScreen,
@@ -241,39 +247,47 @@ class AppRoutes {
     ),
     GetPage(
       name: advancedScreen,
-      page: () => AdvancedScreen(),
+      page: () => const AdvancedScreen(),
     ),
     GetPage(
       name: bandLinkScreen,
-      page: () => BandLinkScreen(),
+      page: () =>const BandLinkScreen(),
     ),
     GetPage(
       name: bandNoteScreen,
-      page: () => BandNoteScreen(),
+      page: () =>const BandNoteScreen(),
     ),
     GetPage(
       name: bandMapScreen,
-      page: () => BandMapScreen(),
+      page: () =>const BandMapScreen(),
     ),
     GetPage(
       name: bandVideoScreen,
-      page: () => BandVideoScreen(),
+      page: () => const BandVideoScreen(),
     ),
     // GetPage(
     //   name: bandPictureScreen,
     //   page: () => BandPictureScreen(),
     // ),
     GetPage(
+      name: cardpreview,
+      page: () =>const CardPreviewScreen(),
+    ),
+    GetPage(
+      name: templatepreview,
+      page: () =>const TemplatePreviewScreen(),
+    ),
+    GetPage(
       name: bandContactbandScreen,
-      page: () => BandContactbandScreen(),
+      page: () =>const BandContactbandScreen(),
     ),
     GetPage(
       name: bandIcongroupScreen,
-      page: () => BandIcongroupScreen(),
+      page: () =>const BandIcongroupScreen(),
     ),
     GetPage(
       name: bandBankaCdetailsScreen,
-      page: () => BandBankaCdetailsScreen(),
+      page: () =>const BandBankaCdetailsScreen(),
     ),
     // GetPage(
     //   name: bandUpicardScreen,
@@ -281,7 +295,7 @@ class AppRoutes {
     // ),
     GetPage(
       name: appNavigationScreen,
-      page: () => AppNavigationScreen(),
+      page: () =>const AppNavigationScreen(),
     ),
     GetPage(
       name: initialRoute,

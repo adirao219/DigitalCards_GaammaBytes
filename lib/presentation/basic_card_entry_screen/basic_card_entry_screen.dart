@@ -96,6 +96,7 @@ class _BasicCardEntryScreen extends State<BasicCardEntryScreen> {
                               margin: getMargin(top: 24),
                               textInputAction: TextInputAction.done),
                           CustomButton(
+                              onTap: onTemplateSelect,
                               height: 60,
                               width: 325,
                               text: "lbl_template_view".tr,
@@ -124,5 +125,9 @@ class _BasicCardEntryScreen extends State<BasicCardEntryScreen> {
 
   onTapeEGreeting() {
     Get.toNamed(AppRoutes.cardEntryScreen);
+  }
+
+  onTemplateSelect() {
+    Get.toNamed(AppRoutes.templatepreview);
   }
 }
