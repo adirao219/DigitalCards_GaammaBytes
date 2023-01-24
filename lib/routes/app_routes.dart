@@ -40,6 +40,7 @@ import 'package:digitalcards/presentation/band_upicard_screen/band_upicard_scree
 import 'package:digitalcards/presentation/app_navigation_screen/app_navigation_screen.dart';
 import 'package:digitalcards/presentation/template_preview/template_preview.dart';
 import 'package:digitalcards/presentation/card_preview/card_preview.dart';
+import 'package:digitalcards/presentation/location_selection/location_selection.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -124,6 +125,8 @@ class AppRoutes {
   static const String cardpreview = '/card_preview';
 
   static const String templatepreview = '/template_preview';
+  
+  static const String locationselection = '/location_selection';
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
@@ -272,6 +275,11 @@ class AppRoutes {
     GetPage(
       name: cardpreview,
       page: () =>const CardPreviewScreen(),
+    ),
+    
+    GetPage(
+      name: locationselection,
+      page: () =>const LocationSelectionScreen(),
     ),
     GetPage(
       name: templatepreview,

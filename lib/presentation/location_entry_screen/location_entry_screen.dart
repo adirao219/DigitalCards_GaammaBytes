@@ -5,6 +5,7 @@ import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:digitalcards/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+
 class LocationEntryScreen extends StatefulWidget {
   const LocationEntryScreen({super.key});
 
@@ -12,8 +13,8 @@ class LocationEntryScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _LocationEntryScreen createState() => _LocationEntryScreen();
 }
+
 class _LocationEntryScreen extends State<LocationEntryScreen> {
-  
   TextEditingController _location_controller = new TextEditingController();
   TextEditingController _latitude_controller = new TextEditingController();
   TextEditingController _longitude_controller = new TextEditingController();
@@ -78,8 +79,11 @@ class _LocationEntryScreen extends State<LocationEntryScreen> {
                           controller: _location_controller,
                           hintText: "lbl_location".tr,
                           margin: getMargin(top: 64)),
-                      CustomImageView(
-                          imagePath: ImageConstant.imgScreenshot55,
+                      CustomButton(
+                          text: "lbl_select_location".tr,
+                          onTap: () {
+                            Get.toNamed(AppRoutes.locationselection);
+                          },
                           height: getVerticalSize(171.00),
                           width: getHorizontalSize(344.00),
                           margin: getMargin(top: 21)),

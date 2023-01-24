@@ -6,6 +6,11 @@ import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:digitalcards/widgets/custom_button.dart';
 import 'package:digitalcards/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
+
+import '../../core/utils/osm_map.dart';
 
 class BandMapScreen extends StatefulWidget {
   const BandMapScreen({super.key});
@@ -20,6 +25,56 @@ class _BandMapScreen extends State<BandMapScreen> {
   final TextEditingController _heading_controller = TextEditingController();
   final TextEditingController _lat_controller = TextEditingController();
   final TextEditingController _long_controller = TextEditingController();
+  MapController _mapController = MapController();
+  LatLng? finalLocation;
+  bool locationSelected = false;
+  @override
+  void initState() {
+    getCurrentLocation();
+    super.initState();
+  }
+
+  getCurrentLocation() async {
+    try {
+      var checkpermission = await _handleLocationPermission();
+      if (checkpermission) {
+        Position position = await Geolocator.getCurrentPosition(
+            desiredAccuracy: LocationAccuracy.high);
+        finalLocation = LatLng(position.latitude, position.longitude);
+      }
+      // ignore: empty_catches
+    } catch (e) {}
+  }
+
+  Future<bool> _handleLocationPermission() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location services are disabled. Please enable the services')));
+      return false;
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Location permissions are denied')));
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location permissions are permanently denied, we cannot request permissions.')));
+      return false;
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,7 +96,7 @@ class _BandMapScreen extends State<BandMapScreen> {
                       AppbarTitle(
                           text: "lbl_bands2".tr.toUpperCase(),
                           margin: getMargin(
-                              left: 152, top: 60, right: 151, bottom: 7)),
+                              left: 0, top: 60, right: 0, bottom: 7)),
                       AppbarIconbutton(
                           svgPath: ImageConstant.imgArrowleft,
                           margin: getMargin(left: 25, top: 44, right: 298),
@@ -91,11 +146,14 @@ class _BandMapScreen extends State<BandMapScreen> {
                           controller: _location_controller,
                           hintText: "lbl_location".tr,
                           margin: getMargin(top: 22)),
-                      CustomImageView(
-                          imagePath: ImageConstant.imgScreenshot55,
-                          height: getVerticalSize(171.00),
-                          width: getHorizontalSize(344.00),
-                          margin: getMargin(top: 21)),
+                      CustomButton(
+                          text: locationSelected
+                              ? "lbl_change_location".tr
+                              : "lbl_select_location".tr,
+                          onTap: goToLocationPage,
+                          height: 60,
+                          width: 250,
+                          margin: getMargin(top: 15)),
                       CustomTextFormField(
                           width: 326,
                           focusNode: FocusNode(),
@@ -121,5 +179,19 @@ class _BandMapScreen extends State<BandMapScreen> {
 
   onTapArrowleft29() {
     Get.back();
+  }
+
+  goToLocationPage() {
+    Get.toNamed(AppRoutes.locationselection)?.then((value) {
+      setState(() {
+        if (value['latLong'] != null) {
+          locationSelected = true;
+          var ltlng = value['latLong'] as LatLong;
+          finalLocation = LatLng(ltlng.latitude, ltlng.longitude);
+          _lat_controller.text = ltlng.latitude.toString();
+          _long_controller.text = ltlng.longitude.toString();
+        }
+      });
+    });
   }
 }
