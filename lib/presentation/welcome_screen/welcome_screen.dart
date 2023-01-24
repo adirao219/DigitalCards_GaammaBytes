@@ -52,7 +52,42 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                           style: AppStyle.txtInterSemiBold20
                               .copyWith(height: getVerticalSize(1.00))),
                       const SizedBox(
-                        height: 30,
+                        height: 20,
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            onTapRowgooglelogoone();
+                          },
+                          child: Container(
+                              margin: getMargin(top: 25, bottom: 5),
+                              padding: getPadding(top: 15, bottom: 15),
+                              decoration: AppDecoration.outlineBlack9003f1
+                                  .copyWith(
+                                      borderRadius:
+                                          BorderRadiusStyle.circleBorder31),
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    CustomImageView(
+                                      imagePath: ImageConstant.imgGooglelogo1,
+                                      height: getVerticalSize(37.00),
+                                      width: getHorizontalSize(37.00),
+                                      // margin: getMargin(top: 2)
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text("msg_continue_with_google".tr,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: AppStyle.txtNunitoSansBlack16
+                                            .copyWith(
+                                                height: getVerticalSize(1.00),
+                                                fontSize: 20))
+                                  ]))),
+                      const SizedBox(
+                        height: 40,
                       ),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -189,59 +224,14 @@ class _WelcomeScreen extends State<WelcomeScreen> {
                                   ]),
                                   textAlign: TextAlign.left))),
                       CustomButton(
+                          height: 62,
                           onTap: () {
                             Get.toNamed(AppRoutes.signupScreen);
                           },
-                          height: 62,
-                          width: 326,
+                          width: 295,
                           text: "lbl_sign_up".tr,
-                          margin: getMargin(top: 65),
-                          variant: ButtonVariant.OutlineBlack9003f),
-                      Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                              padding: getPadding(top: 17, right: 142),
-                              child: Text("lbl_or".tr,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.left,
-                                  style: AppStyle.txtNunitoSansExtraBold15
-                                      .copyWith(
-                                          height: getVerticalSize(1.22))))),
-                      GestureDetector(
-                          onTap: () {
-                            onTapRowgooglelogoone();
-                          },
-                          child: Container(
-                              margin: getMargin(top: 15, right: 1, bottom: 5),
-                              padding: getPadding(
-                                  left: 40, top: 12, right: 40, bottom: 12),
-                              decoration: AppDecoration.outlineBlack9003f1
-                                  .copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.circleBorder31),
-                              child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    CustomImageView(
-                                        imagePath: ImageConstant.imgGooglelogo1,
-                                        height: getVerticalSize(36.00),
-                                        width: getHorizontalSize(37.00),
-                                        margin: getMargin(top: 2)),
-                                    Padding(
-                                        padding: getPadding(
-                                            left: 14,
-                                            top: 10,
-                                            right: 24,
-                                            bottom: 5),
-                                        child: Text(
-                                            "msg_continue_with_google".tr,
-                                            overflow: TextOverflow.ellipsis,
-                                            textAlign: TextAlign.left,
-                                            style: AppStyle.txtNunitoSansBlack16
-                                                .copyWith(
-                                                    height:
-                                                        getVerticalSize(1.00))))
-                                  ])))
+                          margin: getMargin(top: 28),
+                          fontStyle: ButtonFontStyle.InterSemiBold20),
                     ]))));
   }
 

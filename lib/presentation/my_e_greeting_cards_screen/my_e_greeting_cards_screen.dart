@@ -1,3 +1,4 @@
+import '../../widgets/custom_button.dart';
 import '../my_e_greeting_cards_screen/widgets/listchristmasthumbnail_item_widget.dart';
 import 'models/listchristmasthumbnail_item_model.dart';
 import 'package:digitalcards/core/app_export.dart';
@@ -7,6 +8,7 @@ import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'models/my_e_greeting_cards_model.dart';
+
 class MyEGreetingCardsScreen extends StatefulWidget {
   const MyEGreetingCardsScreen({super.key});
 
@@ -14,10 +16,9 @@ class MyEGreetingCardsScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _MyEGreetingCardsScreen createState() => _MyEGreetingCardsScreen();
 }
+
 class _MyEGreetingCardsScreen extends State<MyEGreetingCardsScreen> {
-  
-  
-  Rx<MyEGreetingCardsModel> myEGreetingCardsModelObj  = 
+  Rx<MyEGreetingCardsModel> myEGreetingCardsModelObj =
       MyEGreetingCardsModel().obs;
   @override
   Widget build(BuildContext context) {
@@ -37,13 +38,14 @@ class _MyEGreetingCardsScreen extends State<MyEGreetingCardsScreen> {
                           imagePath: ImageConstant.imgVectorDeepOrangeA100,
                           margin: getMargin(bottom: 2)),
                       AppbarIconbutton(
-                          svgPath: ImageConstant.imgArrowleft,
+                          svgPath: ImageConstant.imgHome,
                           margin: getMargin(left: 40, top: 44, right: 283),
-                          onTap: onTapArrowleft17)
+                          onTap: () {
+                            Get.toNamed(AppRoutes.welcomeScreen);
+                          })
                     ])),
                 styleType: Style.bgStyle_18),
-            body: Container(
-                width: size.width,
+            body: SingleChildScrollView(
                 padding: getPadding(left: 40, top: 28, right: 40, bottom: 28),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,6 +56,15 @@ class _MyEGreetingCardsScreen extends State<MyEGreetingCardsScreen> {
                           textAlign: TextAlign.left,
                           style: AppStyle.txtInterSemiBold20
                               .copyWith(height: getVerticalSize(1.00))),
+                      CustomButton(
+                          height: 62,
+                          onTap: () {
+                            Get.toNamed(AppRoutes.eGreetingCardOptionsScreen);
+                          },
+                          width: 295,
+                          text: "+ Create Digital Cards",
+                          margin: getMargin(top: 28),
+                          fontStyle: ButtonFontStyle.InterSemiBold20),
                       Padding(
                           padding: getPadding(left: 14, top: 43, right: 63),
                           child: Obx(() => ListView.separated(
@@ -62,7 +73,6 @@ class _MyEGreetingCardsScreen extends State<MyEGreetingCardsScreen> {
                               separatorBuilder: (context, index) {
                                 return SizedBox(height: getVerticalSize(56.00));
                               },
-                              
                               itemCount: myEGreetingCardsModelObj
                                   .value.listchristmasthumbnailItemList.length,
                               itemBuilder: (context, index) {

@@ -36,8 +36,7 @@ class _EGreetingCardOptionsScreen extends State<EGreetingCardOptionsScreen> {
                           onTap: onTapArrowleft10)
                     ])),
                 styleType: Style.bgStyle_11),
-            body: Container(
-                width: size.width,
+            body: SingleChildScrollView(
                 padding: getPadding(left: 16, top: 28, right: 16, bottom: 28),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

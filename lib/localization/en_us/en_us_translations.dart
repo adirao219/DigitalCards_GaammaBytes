@@ -147,7 +147,7 @@ final Map<String, String> enUs = {
   "lbl_meetup": "Meetup",
   "lbl_created_date": "Created Date:",
   "lbl_card_preview": "Card Preview",
-  "lbl_log_in": "LOG IN",
+  "lbl_log_in": "SIGN IN",
   "lbl_change_password": "Change Password",
   "lbl_a_c_type": "A/c Type:",
   "lbl_pinterest": "Pinterest",

@@ -1,3 +1,4 @@
+import '../../widgets/custom_button.dart';
 import '../digital_card_options_screen/models/digital_card_options_model.dart';
 import '../my_digital_cards_screen/widgets/listbusinesscardone_item_widget.dart';
 import 'models/listbusinesscardone_item_model.dart';
@@ -8,6 +9,7 @@ import 'package:digitalcards/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'models/my_digital_cards_model.dart';
+
 class MyDigitalCardsScreen extends StatefulWidget {
   const MyDigitalCardsScreen({super.key});
 
@@ -15,10 +17,9 @@ class MyDigitalCardsScreen extends StatefulWidget {
   // ignore: library_private_types_in_public_api
   _MyDigitalCardsScreen createState() => _MyDigitalCardsScreen();
 }
-class _MyDigitalCardsScreen extends State<MyDigitalCardsScreen> {
 
-  Rx<MyDigitalCardsModel> myDigitalCardsModelObj  = 
-      MyDigitalCardsModel().obs;
+class _MyDigitalCardsScreen extends State<MyDigitalCardsScreen> {
+  Rx<MyDigitalCardsModel> myDigitalCardsModelObj = MyDigitalCardsModel().obs;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,13 +38,14 @@ class _MyDigitalCardsScreen extends State<MyDigitalCardsScreen> {
                           imagePath: ImageConstant.imgVectorDeepOrangeA100,
                           margin: getMargin(bottom: 2)),
                       AppbarIconbutton(
-                          svgPath: ImageConstant.imgArrowleft,
+                          svgPath: ImageConstant.imgHome,
                           margin: getMargin(left: 40, top: 44, right: 283),
-                          onTap: onTapArrowleft16)
+                          onTap: () {
+                            Get.toNamed(AppRoutes.welcomeScreen);
+                          })
                     ])),
                 styleType: Style.bgStyle_17),
-            body: Container(
-                width: size.width,
+            body: SingleChildScrollView(
                 padding: getPadding(left: 40, top: 28, right: 40, bottom: 28),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,6 +56,15 @@ class _MyDigitalCardsScreen extends State<MyDigitalCardsScreen> {
                           textAlign: TextAlign.left,
                           style: AppStyle.txtInterSemiBold20
                               .copyWith(height: getVerticalSize(1.00))),
+                      CustomButton(
+                          height: 62,
+                          onTap: () {
+                            Get.toNamed(AppRoutes.digitalCardOptionsScreen);
+                          },
+                          width: 295,
+                          text: "+ Create Digital Cards",
+                          margin: getMargin(top: 28),
+                          fontStyle: ButtonFontStyle.InterSemiBold20),
                       Padding(
                           padding: getPadding(left: 14, top: 45, right: 63),
                           child: Obx(() => ListView.separated(
@@ -62,12 +73,12 @@ class _MyDigitalCardsScreen extends State<MyDigitalCardsScreen> {
                               separatorBuilder: (context, index) {
                                 return SizedBox(height: getVerticalSize(52.00));
                               },
-                              itemCount: myDigitalCardsModelObj.value
-                                  .listbusinesscardoneItemList.length,
+                              itemCount: myDigitalCardsModelObj
+                                  .value.listbusinesscardoneItemList.length,
                               itemBuilder: (context, index) {
-                                ListbusinesscardoneItemModel model = myDigitalCardsModelObj
-                                    .value
-                                    .listbusinesscardoneItemList[index];
+                                ListbusinesscardoneItemModel model =
+                                    myDigitalCardsModelObj.value
+                                        .listbusinesscardoneItemList[index];
                                 return ListbusinesscardoneItemWidget(model);
                               })))
                     ]))));

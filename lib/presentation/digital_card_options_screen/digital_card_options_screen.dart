@@ -54,11 +54,9 @@ class _DigitalCardOptionsScreen extends State<DigitalCardOptionsScreen> {
                                   textAlign: TextAlign.left,
                                   style: AppStyle.txtInterSemiBold20.copyWith(
                                       height: getVerticalSize(1.00)))),
-                          CustomImageView(
-                              imagePath: ImageConstant.imgSearchcard1,
-                              height: getVerticalSize(58.00),
-                              width: getHorizontalSize(340.00),
-                              margin: getMargin(left: 3, top: 10)),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Align(
                               alignment: Alignment.center,
                               child: Container(

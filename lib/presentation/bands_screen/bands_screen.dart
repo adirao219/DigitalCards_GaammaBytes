@@ -55,8 +55,7 @@ class _BandsScreen extends State<BandsScreen> {
                           onTap: onTapArrowleft23)
                     ])),
                 styleType: Style.bgStyle_24),
-            body: Container(
-                width: size.width,
+            body: SingleChildScrollView(
                 padding: getPadding(left: 24, top: 10, right: 24, bottom: 10),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,61 +66,149 @@ class _BandsScreen extends State<BandsScreen> {
                           textAlign: TextAlign.left,
                           style: AppStyle.txtNunitoBold18
                               .copyWith(height: getVerticalSize(1.00))),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _link_controller,
-                          hintText: "lbl_link".tr,
-                          margin: getMargin(left: 1, top: 21)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _note_controller,
-                          hintText: "lbl_note".tr,
-                          margin: getMargin(left: 1, top: 23)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _map_controller,
-                          hintText: "lbl_map".tr,
-                          margin: getMargin(left: 1, top: 24)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _video_controller,
-                          hintText: "lbl_video".tr,
-                          margin: getMargin(left: 1, top: 23)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _picture_controller,
-                          hintText: "lbl_picture".tr,
-                          margin: getMargin(left: 1, top: 23)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _contact_band_controller,
-                          hintText: "lbl_contact_band".tr,
-                          margin: getMargin(left: 1, top: 23)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _icon_group_controller,
-                          hintText: "lbl_icon_group".tr,
-                          margin: getMargin(left: 1, top: 24)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _bank_details_controller,
-                          hintText: "lbl_bank_details".tr,
-                          margin: getMargin(left: 1, top: 23)),
-                      CustomTextFormField(
-                          width: 326,
-                          focusNode: FocusNode(),
-                          controller: _upi_card_controller,
-                          hintText: "lbl_upi_card".tr,
-                          margin: getMargin(left: 1, top: 23, bottom: 5),
-                          textInputAction: TextInputAction.done)
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBandlink();
+                        },
+                        child: Container(
+                          child: Text("lbl_link".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBandNote();
+                        },
+                        child: Container(
+                          child: Text("lbl_note".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBandMap();
+                        },
+                        child: Container(
+                          child: Text("lbl_map".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBandVideo();
+                        },
+                        child: Container(
+                          child: Text("lbl_video".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          child: Text("lbl_picture".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBandIconGroup();
+                        },
+                        child: Container(
+                          child: Text("lbl_contact_band".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          child: Text("lbl_icon_group".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBandBankDetails();
+                        },
+                        child: Container(
+                          child: Text("lbl_bank_details".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          onTapBandUPI();
+                        },
+                        child: Container(
+                          child: Text("lbl_upi_card".tr,
+                              style: AppStyle.txtInterLight18.copyWith(
+                                  fontSize: 13, color: Colors.grey[700])),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                     ])),
             bottomNavigationBar: Padding(
                 padding: getPadding(left: 24, right: 25, bottom: 55),
